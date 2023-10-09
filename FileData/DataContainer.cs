@@ -1,3 +1,5 @@
+using Domain.Models;
+
 namespace DefaultNamespace;
 
 public class DataContainer

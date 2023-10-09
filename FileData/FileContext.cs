@@ -1,3 +1,6 @@
+using System.Text.Json;
+using Domain.Models;
+
 namespace DefaultNamespace;
 
 public class FileContext
