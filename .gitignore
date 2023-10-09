@@ -1,0 +1,10 @@
+/Application/bin/
+/Application/obj/
+/Domain/bin/
+/Domain/obj/
+/FileData/bin/
+/FileData/obj/
+/WebAPI/bin/
+/WebAPI/obj/
+/*/bin/
+/*/obj/
