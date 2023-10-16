@@ -1,0 +1,41 @@
+@page "/CreatePost"
+@using Domain.DTOs
+@using HttpClients.ClientInterfaces
+@inject IPostService postService;
+<h3>CreatePost</h3>
+<div>
+    <div>
+        <label>User: </label>
+        <input type="text" @bind="user" @bind:event = "oninput">
+    </div>
+    <div>
+        <label>Title: </label>
+        <input type="text" @bind="title" @bind:event="oninput">
+    </div>
+    <div>
+        <label>Body: </label>
+        <input type="text" @bind="body" @bind:event="oninput">
+    </div>
+    <button @onclick="Create">Post</button>
+    <h5>@message</h5>
+</div>
+@code {
+    private string user = "";
+    private string title = "";
+    private string body = "";
+    private string message = "";
+    private async Task Create()
+    {
+        try
+        {
+            await postService.CreateAsync(new PostCreationDto(user, title,body));
+            title = "";
+            body = "";
+            message = "Post successfully published";
+        }catch(Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+}
