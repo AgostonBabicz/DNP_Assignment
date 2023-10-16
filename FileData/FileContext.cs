@@ -52,7 +52,4 @@ public class FileContext
         File.WriteAllText(filePath, serialized);
         dataContainer = null;
     }
-    
-    
-
 }

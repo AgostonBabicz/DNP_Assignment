@@ -1,0 +1,67 @@
+@page "/ViewPosts"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject IPostService postService
+
+<h3>All Posts</h3>
+<button @onclick="LoadPosts">LOAD</button>
+
+@if (posts == null)
+{
+}
+else if (!posts.Any())
+{
+    <p>No Todos to display</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Title</th>
+            <th>Post</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in posts)
+        {
+            <tr>
+                <td>@item.Owner.Username</td>
+                <td>@item.Title</td>
+                <td>@item.Body</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@if (!string.IsNullOrEmpty(msg))
+{
+    <label style="color: red">@msg</label>
+}
+
+@code {
+    protected override async void OnInitialized()
+    {
+       await LoadPosts();
+    }
+
+    private IEnumerable<Post> posts;
+    private string msg;
+
+    private async Task LoadPosts()
+    {
+        try
+        {
+            posts = await postService.GetAsync(null,null,null);
+            Console.WriteLine(posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg=e.Message;
+        }
+    }
+
+
+}

@@ -1,0 +1,46 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "Username": "user_1",
+      "Email": null
+    },
+    {
+      "Id": 2,
+      "Username": "user_2",
+      "Email": null
+    },
+    {
+      "Id": 3,
+      "Username": "user_3",
+      "Email": null
+    },
+    {
+      "Id": 4,
+      "Username": "user_4",
+      "Email": null
+    }
+  ],
+  "Posts": [
+    {
+      "Owner": {
+        "Id": 1,
+        "Username": "user_1",
+        "Email": null
+      },
+      "Title": "1st Post",
+      "Body": "Sample Text",
+      "DateTime": "2023-10-16T16:13:34.284876+02:00"
+    },
+    {
+      "Owner": {
+        "Id": 2,
+        "Username": "user_2",
+        "Email": null
+      },
+      "Title": "2nd Post",
+      "Body": "Sample Text",
+      "DateTime": "2023-10-16T16:13:43.859199+02:00"
+    }
+  ]
+}
