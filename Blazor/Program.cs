@@ -2,8 +2,12 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 using Blazor.Data;
+using Blazor.Services;
+using BlazorWasm.Auth;
+using Domain.Auth;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,9 @@ builder.Services.AddScoped(
         }
 );
 builder.Services.AddScoped<IPostService, PostHttpClient>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
+AuthorizationPolicies.AddPolicies(builder.Services);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

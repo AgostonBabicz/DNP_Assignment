@@ -1,10 +1,11 @@
 @page "/ViewPosts"
 @using Domain.Models
+@using UIComponents
 @using HttpClients.ClientInterfaces
 @inject IPostService postService
+@inject NavigationManager navMgr
 
 <h3>All Posts</h3>
-<button @onclick="LoadPosts">LOAD</button>
 
 @if (posts == null)
 {
@@ -26,7 +27,7 @@ else
         <tbody>
         @foreach (var item in posts)
         {
-            <tr>
+            <tr @onclick="()=>ShowPopUp(item)">
                 <td>@item.Owner.Username</td>
                 <td>@item.Title</td>
                 <td>@item.Body</td>
@@ -35,17 +36,30 @@ else
         </tbody>
     </table>
 }
+<Modal ShowModal="showModal">
+    <p>@selectedPost.Title</p>
+    <p>@selectedPost.Owner.Username</p>
+    <p>@selectedPost.Owner.Id</p>
+    <p>@selectedPost.Owner.Email</p>
+    <p>@selectedPost.Owner.Age</p>
+    <p>@selectedPost.Body</p>
+    <p>@selectedPost.DateTime</p>
+    <button @onclick="@GoOn">Go Back</button>
+</Modal>
+
 @if (!string.IsNullOrEmpty(msg))
 {
     <label style="color: red">@msg</label>
 }
 
 @code {
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-       await LoadPosts();
+        await LoadPosts();
     }
 
+    private bool showModal;
+    private Post selectedPost;
     private IEnumerable<Post> posts;
     private string msg;
 
@@ -61,5 +75,16 @@ else
             Console.WriteLine(e);
             msg=e.Message;
         }
+    }
+
+    private void ShowPopUp(Post post)
+    {
+        showModal = true;
+        selectedPost = post;
+    }
+
+    private void GoOn()
+    {
+        showModal = false;
     }
 }

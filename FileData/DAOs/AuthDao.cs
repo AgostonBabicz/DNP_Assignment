@@ -4,11 +4,11 @@ using Domain.Models;
 
 namespace DefaultNamespace.DAOs;
 
-public class UserDao : IUserDao
+public class AuthDao : IAuthDao
 {
     private readonly FileContext context;
 
-    public UserDao(FileContext context)
+    public AuthDao(FileContext context)
     {
         this.context = context;
     }
@@ -34,14 +34,21 @@ public class UserDao : IUserDao
         return Task.FromResult(existing);
     }
 
-    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
+    public Task<User?> GetUser(string username, string password)
     {
-        IEnumerable<User> users = context.Users.AsEnumerable();
-        if (searchParameters.UsernameContains != null)
+        User? existingUser = context.Users.FirstOrDefault(u => 
+            u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
+        Console.WriteLine("DAO: "+existingUser.Username);
+        if (existingUser == null)
         {
-            users = context.Users.Where(u => u.Username.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
+            throw new Exception("User not found");
         }
 
-        return Task.FromResult(users);
+        if (!existingUser.Password.Equals(password))
+        {
+            throw new Exception("Password mismatch");
+        }
+        
+        return Task.FromResult(existingUser)!;
     }
 }

@@ -9,19 +9,19 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly IUserLogic userLogic;
+    private readonly IAuthLogic authLogic;
 
-    public UsersController(IUserLogic userLogic)
+    public UsersController(IAuthLogic authLogic)
     {
-        this.userLogic = userLogic;
+        this.authLogic = authLogic;
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> CreateAsync(UserCreationDto userCreationDto)
+    public async Task<ActionResult<User>> RegisterUserAsync(UserCreationDto userCreationDto)
     {
         try
         {
-            User user = await userLogic.CreateAsync(userCreationDto);
+            User user = await authLogic.CreateAsync(userCreationDto);
             return Created($"/users/{user.Id}", user);
         }
         catch (Exception e)
@@ -30,4 +30,5 @@ public class UsersController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
 }

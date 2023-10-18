@@ -3,9 +3,9 @@ using Domain.Models;
 
 namespace Application.DaoInterfaces;
 
-public interface IUserDao
+public interface IAuthDao
 {
     public Task<User> CreateAsync(User user);
     public Task<User?> GetByUsernameAsync(string username);
-    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters);
+    public Task<User?> GetUser(string username, string password);
 }

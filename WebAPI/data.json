@@ -2,65 +2,42 @@
   "Users": [
     {
       "Id": 1,
-      "Username": "user_1",
-      "Email": null
-    },
-    {
-      "Id": 2,
-      "Username": "user_2",
-      "Email": null
-    },
-    {
-      "Id": 3,
-      "Username": "user_3",
-      "Email": null
-    },
-    {
-      "Id": 4,
-      "Username": "user_4",
-      "Email": null
+      "Username": "admin",
+      "DisplayName": "Admin",
+      "Password": "Admin1234",
+      "Email": "admin@gmail.com",
+      "Age": 34,
+      "Role": "admin"
     }
   ],
   "Posts": [
     {
       "Owner": {
         "Id": 1,
-        "Username": "user_1",
-        "Email": null
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
       },
-      "Title": "1st Post",
-      "Body": "Sample Text",
-      "DateTime": "2023-10-16T16:13:34.284876+02:00"
-    },
-    {
-      "Owner": {
-        "Id": 2,
-        "Username": "user_2",
-        "Email": null
-      },
-      "Title": "2nd Post",
-      "Body": "Sample Text",
-      "DateTime": "2023-10-16T16:13:43.859199+02:00"
-    },
-    {
-      "Owner": {
-        "Id": 3,
-        "Username": "user_3",
-        "Email": null
-      },
-      "Title": "3rd Post",
-      "Body": "HFHFHFHFGFGFGFGDFDFDFDF",
-      "DateTime": "2023-10-16T17:27:03.968705+02:00"
+      "Title": "POST_1",
+      "Body": "This is a sample text",
+      "DateTime": "2023-10-18T19:06:39.34606+02:00"
     },
     {
       "Owner": {
         "Id": 1,
-        "Username": "user_1",
-        "Email": null
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
       },
-      "Title": "New Post",
-      "Body": "This is the body of the new post",
-      "DateTime": "2023-10-16T20:18:11.680389+02:00"
+      "Title": "POST_2",
+      "Body": "THIS IS ALSO A SAMPLE TEXT",
+      "DateTime": "2023-10-18T19:30:40.449425+02:00"
     }
   ]
 }

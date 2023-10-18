@@ -8,17 +8,17 @@ namespace Application.Logic;
 public class PostLogic : IPostLogic
 {
     private readonly IPostDao postDao;
-    private readonly IUserDao userDao;
+    private readonly IAuthDao authDao;
 
-    public PostLogic(IPostDao postDao,IUserDao userDao)
+    public PostLogic(IPostDao postDao,IAuthDao authDao)
     {
         this.postDao = postDao;
-        this.userDao = userDao;
+        this.authDao = authDao;
     }
 
     public async Task<Post> CreateAsync(PostCreationDto postCreationDto)
     {
-        User? user = await userDao.GetByUsernameAsync(postCreationDto.OwnerUsername);
+        User? user = await authDao.GetByUsernameAsync(postCreationDto.OwnerUsername);
         if (user==null)
         {
             throw new Exception($"The username {postCreationDto.OwnerUsername} cannot be found");

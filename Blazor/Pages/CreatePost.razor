@@ -1,7 +1,9 @@
 @page "/CreatePost"
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
-@inject IPostService postService;
+@using UIComponents
+@inject IPostService postService
+@inject NavigationManager navMgr
 <h3>CreatePost</h3>
 <div>
     <div>
@@ -18,8 +20,13 @@
     </div>
     <button @onclick="Create">Post</button>
     <h5>@message</h5>
+    <Modal ShowModal="showModal">
+        <p>You have successfully added a new post</p>
+        <button @onclick="@GoOn">Wonderful</button>
+    </Modal>
 </div>
 @code {
+    private bool showModal;
     private string user = "";
     private string title = "";
     private string body = "";
@@ -29,13 +36,16 @@
         try
         {
             await postService.CreateAsync(new PostCreationDto(user, title,body));
-            title = "";
-            body = "";
-            message = "Post successfully published";
+            showModal = true;
         }catch(Exception e)
         {
             Console.WriteLine(e);
             message = e.Message;
         }
+    }
+    private void GoOn()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/ViewPosts");
     }
 }
