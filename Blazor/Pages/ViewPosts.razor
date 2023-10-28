@@ -2,67 +2,98 @@
 @using Domain.Models
 @using UIComponents
 @using HttpClients.ClientInterfaces
+@using Domain.DTOs
 @inject IPostService postService
 @inject NavigationManager navMgr
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
 
 <h3>All Posts</h3>
-
-@if (posts == null)
-{
-}
-else if (!posts.Any())
-{
-    <p>No Todos to display</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Username</th>
-            <th>Title</th>
-            <th>Post</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in posts)
+<AuthorizeView>
+    <Authorized>
+        @if (posts == null)
         {
-            <tr @onclick="()=>ShowPopUp(item)">
-                <td>@item.Owner.Username</td>
-                <td>@item.Title</td>
-                <td>@item.Body</td>
-            </tr>
         }
-        </tbody>
-    </table>
-}
-<Modal ShowModal="showModal">
-    <p>@selectedPost.Title</p>
-    <p>@selectedPost.Owner.Username</p>
-    <p>@selectedPost.Owner.Id</p>
-    <p>@selectedPost.Owner.Email</p>
-    <p>@selectedPost.Owner.Age</p>
-    <p>@selectedPost.Body</p>
-    <p>@selectedPost.DateTime</p>
-    <button @onclick="@GoOn">Go Back</button>
-</Modal>
+        else if (!posts.Any())
+        {
+            <p>No Todos to display</p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Title</th>
+                    <th>Post</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in posts)
+                {
+                    <tr @onclick="()=>ShowPopUp(item)">
+                        <td>@item.Owner.Username</td>
+                        <td>@item.Title</td>
+                        <td>@item.Body</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        <Modal ShowModal="showModal">
+            <button @onclick="@GoOn">Go Back</button>
+            <p>@selectedPost.Title</p>
+            <p>@selectedPost.Owner.Username</p>
+            <p>@selectedPost.Owner.Id</p>
+            <p>@selectedPost.Owner.Email</p>
+            <p>@selectedPost.Owner.Age</p>
+            <p>@selectedPost.Body</p>
+            <p>@selectedPost.DateTime</p>
+            <div>
+                <label>Write your comment here:</label>
+                <input type="text" @bind="commentBody"/>
+                <button @onclick="() => AddComment(selectedPost)">Add comment</button>
+            </div>
 
-@if (!string.IsNullOrEmpty(msg))
-{
-    <label style="color: red">@msg</label>
-}
+            <div>
+                @foreach (var comment in selectedPost.Comments)
+                {
+                    <h6>@comment.Owner.Username:</h6>
+                    <p>@comment.CommentBody</p>
+                }
+            </div>
+            
+        </Modal>
+        
+        @if (!string.IsNullOrEmpty(msg))
+        {
+            <label style="color: red">@msg</label>
+        }
+    </Authorized>
+    
+    <NotAuthorized>
+        <p>Please login to see all posts and to add comments.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
 
 @code {
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadPosts();
-    }
-
+    private string? user;
     private bool showModal;
     private Post selectedPost;
     private IEnumerable<Post> posts;
     private string msg;
+    private string? commentBody="";
 
+    protected override async Task OnInitializedAsync()
+    {
+        var authstate = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+        var user = authstate.User;
+        if (user.Identity != null)
+        {
+            this.user = user.Identity.Name;
+        }
+        await LoadPosts();
+    }
     private async Task LoadPosts()
     {
         try
@@ -86,5 +117,19 @@ else
     private void GoOn()
     {
         showModal = false;
+        commentBody = "";
     }
+    
+    private void AddComment(Post post)
+    {
+        if (commentBody!=null)
+        {
+            postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
+        }
+        else
+        {
+            msg = "The comment body cannot be empty!";
+        }
+    }
+
 }

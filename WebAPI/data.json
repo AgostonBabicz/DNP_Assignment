@@ -23,7 +23,8 @@
       },
       "Title": "POST_1",
       "Body": "This is a sample text",
-      "DateTime": "2023-10-18T19:06:39.34606+02:00"
+      "DateTime": "2023-10-18T19:06:39.34606+02:00",
+      "Comments": []
     },
     {
       "Owner": {
@@ -37,7 +38,37 @@
       },
       "Title": "POST_2",
       "Body": "THIS IS ALSO A SAMPLE TEXT",
-      "DateTime": "2023-10-18T19:30:40.449425+02:00"
+      "DateTime": "2023-10-18T19:30:40.449425+02:00",
+      "Comments": []
+    },
+    {
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
+      },
+      "Title": "TITLE",
+      "Body": "TEST",
+      "DateTime": "2023-10-28T11:32:55.471896+02:00",
+      "Comments": [
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "DisplayName": "Admin",
+            "Password": "Admin1234",
+            "Email": "admin@gmail.com",
+            "Age": 34,
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-28T14:16:39.655894+02:00",
+          "CommentBody": "This is the 1st comment"
+        }
+      ]
     }
   ]
 }

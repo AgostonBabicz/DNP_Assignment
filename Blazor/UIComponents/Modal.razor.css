@@ -18,7 +18,7 @@
     padding: 20px;
     border: 1px solid #000000;
     /*display:inline-block;*/
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 70%; /* Could be more or less, depending on screen size */
     min-width: 300px;
     border-radius: 25px;
     box-shadow: 0 5px 30px 15px #3f3f3f;

@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Domain.DTOs;
 using Domain.Models;
 using HttpClients.ClientInterfaces;
@@ -38,4 +39,15 @@ public class PostHttpClient : IPostService
             throw new Exception(content);
         }
     }
+
+    public async Task AddCommentAsync(CommentCreationDto commentCreationDto)
+    {
+        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
+        if (!message.IsSuccessStatusCode)
+        {
+            string content = await message.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
 }

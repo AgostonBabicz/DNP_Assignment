@@ -31,4 +31,15 @@ public class PostDao : IPostDao
         IEnumerable<Post> posts = fileContext.Posts.AsEnumerable();
         return posts;
     }
+
+    public Task<Comment> AddCommentAsync(Comment comment, Post post)
+    {
+        post.Comments.Add(comment);
+        Post existing = fileContext.Posts.FirstOrDefault(p => post.Id == p.Id)!;
+        fileContext.Posts.Remove(existing);
+        fileContext.Posts.Add(post);
+        fileContext.SaveChanges();
+        Console.WriteLine("GECI");
+        return Task.FromResult(comment);
+    }
 }

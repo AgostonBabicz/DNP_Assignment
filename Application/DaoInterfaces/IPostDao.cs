@@ -6,4 +6,6 @@ public interface IPostDao
 {
     public Task<Post> CreateAsync(Post post);
     public Task<IEnumerable<Post>> GetAsync();
+
+    public Task<Comment> AddCommentAsync(Comment comment, Post post);
 }
