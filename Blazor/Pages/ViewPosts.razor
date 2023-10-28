@@ -57,7 +57,7 @@
             <div>
                 @foreach (var comment in selectedPost.Comments)
                 {
-                    <h6>@comment.Owner.Username:</h6>
+                    <h6>@comment.Owner:</h6>
                     <p>@comment.CommentBody</p>
                 }
             </div>
@@ -120,11 +120,14 @@
         commentBody = "";
     }
     
-    private void AddComment(Post post)
+    private async void AddComment(Post post)
     {
         if (commentBody!=null)
         {
-            postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
+            await postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
+            commentBody = "";
+            showModal = false;
+            await LoadPosts();
         }
         else
         {

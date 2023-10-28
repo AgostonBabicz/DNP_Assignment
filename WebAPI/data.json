@@ -12,6 +12,7 @@
   ],
   "Posts": [
     {
+      "Id": 0,
       "Owner": {
         "Id": 1,
         "Username": "admin",
@@ -21,52 +22,71 @@
         "Age": 34,
         "Role": "admin"
       },
-      "Title": "POST_1",
-      "Body": "This is a sample text",
-      "DateTime": "2023-10-18T19:06:39.34606+02:00",
-      "Comments": []
-    },
-    {
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "POST_2",
-      "Body": "THIS IS ALSO A SAMPLE TEXT",
-      "DateTime": "2023-10-18T19:30:40.449425+02:00",
-      "Comments": []
-    },
-    {
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "TITLE",
-      "Body": "TEST",
-      "DateTime": "2023-10-28T11:32:55.471896+02:00",
+      "Title": "Title_1",
+      "Body": "...",
+      "DateTime": "2023-10-28T20:04:29.424753+02:00",
       "Comments": [
         {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "DisplayName": "Admin",
-            "Password": "Admin1234",
-            "Email": "admin@gmail.com",
-            "Age": 34,
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-28T14:16:39.655894+02:00",
-          "CommentBody": "This is the 1st comment"
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:04:49.1905+02:00",
+          "CommentBody": "1st Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:14:18.506666+02:00",
+          "CommentBody": "2nd Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:21:43.362507+02:00",
+          "CommentBody": "3rd Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:21:50.797532+02:00",
+          "CommentBody": "4th Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:22:43.151182+02:00",
+          "CommentBody": "asdfasdfasdf"
+        }
+      ]
+    },
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
+      },
+      "Title": "Title_2",
+      "Body": "...",
+      "DateTime": "2023-10-28T20:22:11.709074+02:00",
+      "Comments": [
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:22:21.555131+02:00",
+          "CommentBody": "1St Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:22:29.059362+02:00",
+          "CommentBody": "2nd Comment"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:22:38.667822+02:00",
+          "CommentBody": "%th ComerWER"
+        },
+        {
+          "Owner": "admin",
+          "CreationDateTime": "2023-10-28T20:22:51.942463+02:00",
+          "CommentBody": "asdfasdfasdf"
         }
       ]
     }

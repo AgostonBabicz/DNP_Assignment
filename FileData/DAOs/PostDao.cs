@@ -35,11 +35,12 @@ public class PostDao : IPostDao
     public Task<Comment> AddCommentAsync(Comment comment, Post post)
     {
         post.Comments.Add(comment);
+        Console.WriteLine("DAO:  "+post.ToString());
         Post existing = fileContext.Posts.FirstOrDefault(p => post.Id == p.Id)!;
+        Console.WriteLine("EXISTING:  "+existing.ToString());
         fileContext.Posts.Remove(existing);
         fileContext.Posts.Add(post);
         fileContext.SaveChanges();
-        Console.WriteLine("GECI");
         return Task.FromResult(comment);
     }
 }

@@ -4,7 +4,7 @@ namespace Domain.Models;
 
 public class Post
 {
-    [JsonIgnore]public int Id { get; set; }
+    public int Id { get; set; }
     public User Owner { get; set; }
     public string Title { get; set; }
     public string Body { get; set; }
@@ -19,5 +19,15 @@ public class Post
         Body = body;
         DateTime = dateTime;
         Comments = new List<Comment>();
+    }
+
+    public override string ToString()
+    {
+        string commentsInfo = string.Join("\n", Comments.Select(comment => comment.ToString()));
+        return $"Post Id: {Id}\n" +
+               $"Title: {Title}\n" +
+               $"Body: {Body}\n" +
+               $"Owner: {Owner.Username}\n" +
+               $"Comments:\n{commentsInfo}";
     }
 }

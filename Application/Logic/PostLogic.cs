@@ -50,9 +50,9 @@ public class PostLogic : IPostLogic
 
     public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
     {
-        User? user = await authDao.GetByUsernameAsync(commentCreationDto.User);
         Post post = commentCreationDto.Post;
-        Comment comment = new Comment(user, commentCreationDto.CreationTime,
+        Console.WriteLine("LOGIC:  "+post.ToString());
+        Comment comment = new Comment(commentCreationDto.User, commentCreationDto.CreationTime,
             commentCreationDto.CommentBody);
         return await postDao.AddCommentAsync(comment,post);
     }
