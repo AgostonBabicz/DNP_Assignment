@@ -39,7 +39,6 @@ public class AuthDao : IAuthDao
     {
         User? existingUser = context.Users.FirstOrDefault(u => 
             u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
-        Console.WriteLine("DAO: "+existingUser.Username);
         if (existingUser == null)
         {
             throw new Exception("User not found");

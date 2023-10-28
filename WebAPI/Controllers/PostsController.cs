@@ -51,7 +51,6 @@ public class PostsController : ControllerBase
     {
         try
         {
-            Console.WriteLine("CONTROLLER:"+commentCreationDto.CommentBody);
             Comment comment = await postLogic.AddCommentAsync(commentCreationDto);
             return Ok(comment);
         }

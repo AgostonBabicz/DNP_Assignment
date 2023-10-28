@@ -40,7 +40,6 @@ public class PostDao : IPostDao
         fileContext.Posts.Remove(existing);
         fileContext.Posts.Add(post);
         fileContext.SaveChanges();
-        Console.WriteLine("GECI");
         return Task.FromResult(comment);
     }
 }

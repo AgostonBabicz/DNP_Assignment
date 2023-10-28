@@ -37,7 +37,6 @@ public class AuthController : ControllerBase
             new Claim("Age", user.Age.ToString()),
             new Claim("Id",user.Id.ToString())
         };
-        Console.WriteLine("hugy");
         return claims.ToList();
     }
     private string GenerateJwt(User user)
@@ -65,9 +64,7 @@ public class AuthController : ControllerBase
         try
         {
             User? user = await authLogic.GetAsync(userLoginDto);
-            Console.WriteLine("AuthController: "+user.Username);
             string token = GenerateJwt(user);
-            Console.WriteLine("AuthController"+token);
             return Ok(token);
         }
         catch (Exception e)
