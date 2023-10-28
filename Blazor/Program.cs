@@ -1,9 +1,8 @@
+using Blazor.Auth;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
 using Blazor.Data;
-using Blazor.Services;
-using BlazorWasm.Auth;
 using Domain.Auth;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
@@ -18,7 +17,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped(
     sp => 
         new HttpClient { 
-            BaseAddress = new Uri("https://localhost:7082") 
+            BaseAddress = new Uri("http://localhost:5273") 
         }
 );
 builder.Services.AddScoped<IPostService, PostHttpClient>();

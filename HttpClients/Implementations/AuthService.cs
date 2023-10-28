@@ -3,9 +3,9 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
-using Domain.Models;
+using HttpClients.ClientInterfaces;
 
-namespace Blazor.Services;
+namespace HttpClients.Implementations;
 
 public class AuthService : IAuthService
 {

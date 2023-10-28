@@ -1,0 +1,57 @@
+﻿.commentField{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+
+.commentField input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+input:focus{
+    outline: none;
+}
+
+.commentField button{
+    width: 80px;
+    background-color: white;
+    padding: 5px 0px 0px 0px;
+    border-radius: 10px;
+    align-self: flex-end;
+    margin: 1%;
+    transition: 0.5s ease-in-out;
+}
+
+.commentField button:hover{
+    background-color: black;
+    color: white;
+}
+
+.currentPost{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: column;
+}
+
+.ownerTitle{
+    margin-top: 1%;
+    border-bottom: 1px solid rgb(128,128,128);
+    width: 80%;
+    font-size: calc(15px + 0.4vh);
+}
+
+.currentPostBody{
+    font-size: calc(12px + 0.4vh);
+}
+
+.postDate{
+    font-size: 10px;
+    color: rgb(128, 128, 128);
+    align-self: flex-end;
+}
+
+

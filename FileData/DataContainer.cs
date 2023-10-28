@@ -1,6 +1,6 @@
 using Domain.Models;
 
-namespace DefaultNamespace;
+namespace FileData;
 
 public class DataContainer
 {

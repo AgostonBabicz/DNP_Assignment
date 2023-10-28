@@ -1,7 +1,8 @@
 using System.Text.Json;
+using DefaultNamespace;
 using Domain.Models;
 
-namespace DefaultNamespace;
+namespace FileData;
 
 public class FileContext
 {

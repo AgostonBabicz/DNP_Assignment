@@ -12,6 +12,7 @@
   ],
   "Posts": [
     {
+      "Id": 2,
       "Owner": {
         "Id": 1,
         "Username": "admin",
@@ -21,39 +22,9 @@
         "Age": 34,
         "Role": "admin"
       },
-      "Title": "POST_1",
-      "Body": "This is a sample text",
-      "DateTime": "2023-10-18T19:06:39.34606+02:00",
-      "Comments": []
-    },
-    {
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "POST_2",
-      "Body": "THIS IS ALSO A SAMPLE TEXT",
-      "DateTime": "2023-10-18T19:30:40.449425+02:00",
-      "Comments": []
-    },
-    {
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "TITLE",
-      "Body": "TEST",
-      "DateTime": "2023-10-28T11:32:55.471896+02:00",
+      "Title": "pula",
+      "Body": "pula",
+      "DateTime": "2023-10-28T20:15:19.845601+02:00",
       "Comments": [
         {
           "Owner": {
@@ -65,8 +36,81 @@
             "Age": 34,
             "Role": "admin"
           },
-          "CreationDateTime": "2023-10-28T14:16:39.655894+02:00",
-          "CommentBody": "This is the 1st comment"
+          "CreationDateTime": "2023-10-28T20:15:46.6639894+02:00",
+          "CommentBody": "pula"
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
+      },
+      "Title": "coaie",
+      "Body": "coaie",
+      "DateTime": "2023-10-28T20:15:26.4037686+02:00",
+      "Comments": [
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "DisplayName": "Admin",
+            "Password": "Admin1234",
+            "Email": "admin@gmail.com",
+            "Age": 34,
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-28T20:15:31.4772977+02:00",
+          "CommentBody": "coaie"
+        },
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "DisplayName": "Admin",
+            "Password": "Admin1234",
+            "Email": "admin@gmail.com",
+            "Age": 34,
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-28T20:16:51.2820896+02:00",
+          "CommentBody": "coaie"
+        }
+      ]
+    },
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "DisplayName": "Admin",
+        "Password": "Admin1234",
+        "Email": "admin@gmail.com",
+        "Age": 34,
+        "Role": "admin"
+      },
+      "Title": "dadwada",
+      "Body": "wdadawdawda",
+      "DateTime": "2023-10-28T20:15:13.726526+02:00",
+      "Comments": [
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "DisplayName": "Admin",
+            "Password": "Admin1234",
+            "Email": "admin@gmail.com",
+            "Age": 34,
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-28T20:17:09.019106+02:00",
+          "CommentBody": "ce dracu"
         }
       ]
     }

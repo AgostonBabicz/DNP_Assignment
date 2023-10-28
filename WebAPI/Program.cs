@@ -5,6 +5,7 @@ using Application.LogicInterfaces;
 using DefaultNamespace;
 using DefaultNamespace.DAOs;
 using Domain.Auth;
+using FileData;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 

@@ -1,0 +1,88 @@
+﻿.content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    width: 50%;
+    box-shadow: 0px 0px 29px -1px rgba(0,0,0,0.75);
+}
+
+.createForm{
+    padding: 5%;
+    width: 70%;
+}
+
+.postTitle{
+    width: 90%;
+    margin: 1%;
+}
+
+.postBody{
+    margin: 1%;
+    width: 90%;
+    height: 300px;
+    resize: none;
+}
+
+.rules{
+    align-self: center;
+    width: 30%;
+    margin: 1%;
+    border: 1px groove black;
+    font-size: calc(12px + 0.392vh);
+}
+
+.rules ol{
+    text-align: left;
+}
+
+.postBtn{
+    width: 75px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    align-self: flex-end;
+    justify-self: center;
+    margin: 1%;
+    transition: 0.5s ease-in-out;
+}
+
+.postBtn:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 1240px ) {
+    .card{
+        flex-direction: column;
+    }
+    .rules{
+        width: 97%;
+        order: 0;
+    }
+    .createForm{
+        width: 97%;
+        order: 1;
+    }
+    .postTitle{
+        width: 97%;
+    }
+    .postBody{
+        width: 97%;
+    }
+    .postBtn{
+        order: 2;
+    }
+}
+
+@media (max-width: 850px) {
+    .card{
+        width: 100%;
+    }
+}

@@ -5,29 +5,38 @@
 @inject IPostService postService
 @inject NavigationManager navMgr
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
-<h3>CreatePost</h3>
 <AuthorizeView>
     <Authorized>
         
-        <div>
-            <div>
-                <p>Post as <span>@context.User.Identity.Name</span></p>
+        <div class="content">
+            <div class="card">
+                <div class="createForm">
+                    <div>
+                        <input class="postTitle" type="text" @bind="title" @bind:event="oninput" placeholder="Title">
+                    </div>
+                    <div>
+                        <textarea class="postBody" @bind="body" @bind:event="oninput" placeholder="Start writing here..."></textarea>
+                    </div>
+                    <h5>@message</h5>
+                    <Modal ShowModal="showModal">
+                        <p>You have successfully added a new post</p>
+                        <button @onclick="@GoOn">Wonderful</button>
+                    </Modal>
+                </div>
+                <button class="postBtn" @onclick="Create">Post</button>
+                
+                <div class="rules">
+                    <p>The rules of TotallyNotReddit</p>
+                    <ol type="1">
+                        <li>Behave like you would in real life</li>
+                        <li>Don't curse a lot</li>
+                        <li>Be chill 🤙</li>
+                    </ol>
+                </div>
+                
             </div>
-            <div>
-                <label>Title: </label>
-                <input type="text" @bind="title" @bind:event="oninput">
-            </div>
-            <div>
-                <label>Body: </label>
-                <input type="text" @bind="body" @bind:event="oninput">
-            </div>
-            <button @onclick="Create">Post</button>
-            <h5>@message</h5>
-            <Modal ShowModal="showModal">
-                <p>You have successfully added a new post</p>
-                <button @onclick="@GoOn">Wonderful</button>
-            </Modal>
         </div>
+        
     </Authorized>
     
     <NotAuthorized>

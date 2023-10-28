@@ -4,7 +4,6 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @inject IPostService postService
-@inject NavigationManager navMgr
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 
 <h3>All Posts</h3>
@@ -41,17 +40,18 @@
         }
         <Modal ShowModal="showModal">
             <button @onclick="@GoOn">Go Back</button>
-            <p>@selectedPost.Title</p>
-            <p>@selectedPost.Owner.Username</p>
-            <p>@selectedPost.Owner.Id</p>
-            <p>@selectedPost.Owner.Email</p>
-            <p>@selectedPost.Owner.Age</p>
-            <p>@selectedPost.Body</p>
-            <p>@selectedPost.DateTime</p>
+            <div class="currentPost">
+                <p class="ownerTitle">@selectedPost.Owner.Username - @selectedPost.Title</p>
+                <p class="currentPostBody">@selectedPost.Body</p>
+                <p class="postDate">@selectedPost.DateTime</p>
+            </div>
+            <hr/>
             <div>
-                <label>Write your comment here:</label>
-                <input type="text" @bind="commentBody"/>
-                <button @onclick="() => AddComment(selectedPost)">Add comment</button>
+                <label>@selectedPost.Comments.Count Comments</label>
+                <div class="commentField">
+                    <input type="text" @bind="commentBody" placeholder="Add a comment..."/>
+                    <button @onclick="() => AddComment(selectedPost)">Comment</button>
+                </div>
             </div>
 
             <div>

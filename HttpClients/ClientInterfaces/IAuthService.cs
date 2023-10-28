@@ -1,8 +1,7 @@
 using System.Security.Claims;
 using Domain.DTOs;
-using Domain.Models;
 
-namespace Blazor.Services;
+namespace HttpClients.ClientInterfaces;
 
 public interface IAuthService
 {

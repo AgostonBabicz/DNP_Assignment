@@ -1,20 +1,15 @@
-.content{
+﻿.content{
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.card {
+.card{
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 2%; 
-}
-
-.link
-{
-    cursor: pointer;
-    color: #0c63e4;
+    padding: 2%;
+    width: 25%;
 }
 
 input:focus{
@@ -37,7 +32,7 @@ input:-webkit-autofill{
 .field input[type=text]{
     border: none;
     background-color: transparent;
-    
+
 }
 
 .field input[type=password]{
@@ -53,10 +48,4 @@ input:-webkit-autofill{
 .mandatory{
     font-size: 12px;
     color: red;
-}
-
-.logInBtn{
-    width: 50%;
-    align-self: center;
-    margin: 1%;
 }

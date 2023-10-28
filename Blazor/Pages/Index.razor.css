@@ -1,0 +1,37 @@
+﻿.content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    box-shadow: 0px 0px 29px -1px rgba(0,0,0,0.75);
+}
+
+.partOne{
+    font-size: calc(20px + 0.4vh);
+}
+
+.partTwo{
+    font-size: calc(16px + 0.4vh);
+}
+
+.toLogIn{
+    align-self: center;
+    width: 50%;
+    border: none;
+    background-color: lightblue;
+}
+
+.welcomeText{
+    font-size: calc(22px + 0.4vh);
+}
+
+.userWelcome{
+    
+}

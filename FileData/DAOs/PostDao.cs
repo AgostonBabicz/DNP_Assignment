@@ -1,5 +1,6 @@
 using Application.DaoInterfaces;
 using Domain.Models;
+using FileData;
 
 namespace DefaultNamespace.DAOs;
 
