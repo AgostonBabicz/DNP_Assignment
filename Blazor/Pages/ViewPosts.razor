@@ -120,15 +120,37 @@
         commentBody = "";
     }
     
-    private void AddComment(Post post)
+    /*private void AddComment(Post post)
     {
         if (commentBody!=null)
         {
             postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
+            //geci kurva jol berakja json ba de nem kurja vissza blazor be ezert kene reloadolni az egesz hobeleglancot
         }
         else
         {
             msg = "The comment body cannot be empty!";
+        }
+    }*/
+    
+    private async Task AddComment(Post post)
+    {
+        if (commentBody != null)
+        {
+            CommentCreationDto commentDto = new CommentCreationDto(user, DateTime.Now, post, commentBody);
+            Comment newComment = await postService.AddCommentAsync(commentDto);  //ehhez a kulahoz kellett az
+                                                                //ipost service meg a http gecifej h lehessen new comment
+            if (selectedPost != null)
+            {
+                selectedPost.Comments.Add(newComment);
+            }
+        
+            commentBody = "";
+        }
+        //ez felfoghato nem??
+        else
+        {
+            msg = "comment body cannot be empty";
         }
     }
 

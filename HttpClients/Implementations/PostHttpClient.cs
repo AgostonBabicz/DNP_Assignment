@@ -39,8 +39,8 @@ public class PostHttpClient : IPostService
             throw new Exception(content);
         }
     }
-
-    public async Task AddCommentAsync(CommentCreationDto commentCreationDto)
+    //ez egyelore kuka csinalok jobbat
+   /* public async Task AddCommentAsync(CommentCreationDto commentCreationDto)
     {
         HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
         if (!message.IsSuccessStatusCode)
@@ -48,6 +48,45 @@ public class PostHttpClient : IPostService
             string content = await message.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
-    }
+    }*/
+    
+   /* public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
+    {                                              //gpt vegig
+        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
+        if (!message.IsSuccessStatusCode)
+        {
+            string content = await message.Content.ReadAsStringAsync();
+            throw new Exception(content); //nincs ilyen sir a szaja gpt urasag kegyelmezett meg
+        }
+    
+        // deserialize az uj commentet a responsnak a bodyjabol es vissza etetem vele
+        Comment newlyCreatedComment = JsonSerializer.Deserialize<Comment>( //agyhalott vagyok ilyet itt igy nem lehet
+        })!; //beszart
+    
+        return newlyCreatedComment; //barcsak
+    }*/
+   //hat nem sikerult ez kurva szar itthagyom h a gondolat menetm meg otlet ne vesszen el
 
+   public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
+   {
+       HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
+       if (!message.IsSuccessStatusCode)
+       {
+           throw new Exception("failed to add comment"); // kis subidubi
+       }
+    
+       // nem tom igy mukodik e az async elgetes de ha jol ertem igen
+       var responseContent = await message.Content.ReadAsStringAsync();
+
+       // na igy mar lehet deserializolni es returnolni
+       Comment newlyCreatedComment = JsonSerializer.Deserialize<Comment>(responseContent, new JsonSerializerOptions
+       {
+           PropertyNameCaseInsensitive = true
+       })!;
+
+       return newlyCreatedComment;
+   }
+   //ez szarra lett chat gpt zve
+
+   
 }
