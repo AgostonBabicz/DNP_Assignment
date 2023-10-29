@@ -1,9 +1,7 @@
 using Application.DaoInterfaces;
-using Domain.DTOs;
 using Domain.Models;
-using FileData;
 
-namespace DefaultNamespace.DAOs;
+namespace FileData.DAOs;
 
 public class AuthDao : IAuthDao
 {

@@ -125,18 +125,23 @@
         commentBody = "";
     }
     
-    private void AddComment(Post post)
+    private async Task AddComment(Post post)
     {
-        if (commentBody!=null)
-        {   
-            postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
-           
+        if (commentBody != null)
+        {
+            CommentCreationDto commentDto = new CommentCreationDto(user, DateTime.Now, post, commentBody);
+            Comment newComment = await postService.AddCommentAsync(commentDto);  
+            if (selectedPost != null)
+            {
+                selectedPost.Comments.Add(newComment);
+            }
+        
+            commentBody = "";
         }
         else
         {
-            msg = "The comment body cannot be empty!";
+            msg = "comment body cannot be empty";
         }
-        
     }
     
     private async Task DeletePost(int selectedPostId)

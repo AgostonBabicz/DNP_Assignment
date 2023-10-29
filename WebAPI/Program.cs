@@ -2,10 +2,9 @@ using System.Text;
 using Application.DaoInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
-using DefaultNamespace;
-using DefaultNamespace.DAOs;
 using Domain.Auth;
 using FileData;
+using FileData.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 

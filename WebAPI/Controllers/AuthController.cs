@@ -34,7 +34,6 @@ public class AuthController : ControllerBase
             new Claim(ClaimTypes.Role, user.Role),
             new Claim("Id",user.Id.ToString())
         };
-        Console.WriteLine("hugy");
         return claims.ToList();
     }
     private string GenerateJwt(User user)

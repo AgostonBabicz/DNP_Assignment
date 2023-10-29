@@ -1,8 +1,7 @@
 using Application.DaoInterfaces;
 using Domain.Models;
-using FileData;
 
-namespace DefaultNamespace.DAOs;
+namespace FileData.DAOs;
 
 public class PostDao : IPostDao
 {
@@ -40,7 +39,6 @@ public class PostDao : IPostDao
         fileContext.Posts.Remove(existing);
         fileContext.Posts.Add(post);
         fileContext.SaveChanges();
-        Console.WriteLine("GECI");
         return Task.FromResult(comment);
     }
 

@@ -40,7 +40,7 @@ public class PostHttpClient : IPostService
         }
     }
 
-    public async Task AddCommentAsync(CommentCreationDto commentCreationDto)
+    public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
     {
         HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
         if (!message.IsSuccessStatusCode)
@@ -48,6 +48,15 @@ public class PostHttpClient : IPostService
             string content = await message.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
+        
+        var responseContent = await message.Content.ReadAsStringAsync();
+
+        Comment newlyCreatedComment = JsonSerializer.Deserialize<Comment>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return newlyCreatedComment;
     }
 
     public async Task DeletePost(int postID)

@@ -70,7 +70,6 @@ public class AuthLogic : IAuthLogic
     public async Task<User?> GetAsync(UserLoginDto userLoginDto)
     {
         User? user = await authDao.GetUser(userLoginDto.Username, userLoginDto.Password);
-        Console.WriteLine("Logic: "+user.Username);
         return user;
     }
 }
