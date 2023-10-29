@@ -58,6 +58,25 @@ public class PostHttpClient : IPostService
 
         return newlyCreatedComment;
     }
+    
+    public async Task<int> AddVote(AddVoteDto addVoteDto)
+    {
+        HttpResponseMessage message = await client.PatchAsJsonAsync($"/posts/{addVoteDto.Post.Id}/vote", addVoteDto);
+
+        if (!message.IsSuccessStatusCode)
+        {
+            string content = await message.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+
+        var responseContent = await message.Content.ReadAsStringAsync();
+        int updatedVoteCount = JsonSerializer.Deserialize<int>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        return updatedVoteCount;
+    }
 
     public async Task DeletePost(int postID)
     {

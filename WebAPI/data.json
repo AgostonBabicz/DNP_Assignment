@@ -16,6 +16,7 @@
   "Posts": [
     {
       "Id": 2,
+      "Upvotes": 0,
       "Owner": {
         "Id": 1,
         "Username": "admin",

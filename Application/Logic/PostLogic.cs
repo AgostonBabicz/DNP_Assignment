@@ -57,6 +57,11 @@ public class PostLogic : IPostLogic
         return await postDao.AddCommentAsync(comment,post);
     }
 
+   public async Task<int> AddVote(AddVoteDto addVoteDto)
+   {
+      //haha no User? user = await authDao.GetByUsernameAsync(addVoteDto.User);
+       return await postDao.AddVote(addVoteDto.Vote, addVoteDto.Post);
+   }
     public async Task<bool> DeletePost(int postID)
     {
         if (await postDao.DeletePost(postID))
@@ -66,4 +71,11 @@ public class PostLogic : IPostLogic
 
         return false;
     }
+
+   /* public async Task<int> AddVote(AddVoteDto addVoteDto)
+    {
+        return await postDao.AddVote(addVoteDto.Vote, addVoteDto.Post);
+    }*/ //idk theres no vote object I will not make one just to have an int fuck you all I dont care its going
+   //               to work like this
+   
 }

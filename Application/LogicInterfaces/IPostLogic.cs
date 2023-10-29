@@ -9,4 +9,5 @@ public interface IPostLogic
     public Task<IEnumerable<Post>> GetAsync();
     public Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto);
     public Task<bool> DeletePost(int postID);
+    public Task<int> AddVote(AddVoteDto addVoteDto);
 }

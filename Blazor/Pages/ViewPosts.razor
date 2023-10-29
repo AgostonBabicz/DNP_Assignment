@@ -6,6 +6,7 @@
 @inject IPostService postService
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavMgr
+@inject IHttpClientFactory httpClientFactory
 
 <h3>All Posts</h3>
 <AuthorizeView>
@@ -40,6 +41,7 @@
             </table>
         }
         <Modal ShowModal="showModal">
+            <div class="popup-content">
             <button @onclick="@GoOn">Go Back</button>
             <div class="currentPost">
                 <p class="ownerTitle">@selectedPost.Owner.Username - @selectedPost.Title</p>
@@ -48,7 +50,7 @@
             </div>
             @if (selectedPost.Owner.Username == context.User.Identity.Name)
             {
-                <button @onclick=" () => DeletePost(selectedPost.Id)"> Delete </button>
+                <button @onclick="() => DeletePost(selectedPost.Id)"> Delete </button>
             }
             <hr/>
             <div>
@@ -59,6 +61,18 @@
                 </div>
             </div>
 
+            <div> <!--AIUFIASFBAJBSAFNdfcgvhbjnkmnjbvhgcfxdcgvbhnj mk,knjbhvgcfgvhbjnkmnjbhvgKJAFN-->
+
+                <div class="voteButtons">
+                    <button @onclick="() => UpvotePost(selectedPost)">Upvote</button>
+                    <button @onclick="() => DownvotePost(selectedPost)">Downvote</button>
+                </div>
+
+                <p>Upvotes: @selectedPost.Upvotes</p>
+
+            </div>
+
+
             <div>
                 @foreach (var comment in selectedPost.Comments)
                 {
@@ -66,7 +80,7 @@
                     <p>@comment.CommentBody</p>
                 }
             </div>
-            
+        </div>
         </Modal>
         
         @if (!string.IsNullOrEmpty(msg))
@@ -143,11 +157,52 @@
             msg = "comment body cannot be empty";
         }
     }
+    //_______________________________________________________________________
+    private async Task UpvotePost(Post post)
+    {
+        using (var client = httpClientFactory.CreateClient())
+        {
+            AddVoteDto addVoteDto = new AddVoteDto(user, post, 1); // Vote value 1 for upvote
+            HttpResponseMessage response = await client.PatchAsJsonAsync("https://your-api-base-url/posts/vote", addVoteDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                int updatedVoteCount = await response.Content.ReadFromJsonAsync<int>();
+                selectedPost.Upvotes = updatedVoteCount;
+            }
+            else
+            {
+    // Handle the error here, e.g., display an error message
+            }
+        }
+    }
+
+    private async Task DownvotePost(Post post)
+    {
+        using (var client = httpClientFactory.CreateClient())
+        {
+            AddVoteDto addVoteDto = new AddVoteDto(user, post, -1); // Vote value -1 for downvote
+            HttpResponseMessage response = await client.PatchAsJsonAsync("https://your-api-base-url/posts/vote", addVoteDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                int updatedVoteCount = await response.Content.ReadFromJsonAsync<int>();
+                selectedPost.Upvotes = updatedVoteCount;
+            }
+            else
+            {
+    // Handle the error here, e.g., display an error message
+            }
+        }
+    }
+    //_______________________________________________________________________
     
     private async Task DeletePost(int selectedPostId)
     {
         await postService.DeletePost(selectedPostId);
         NavMgr.NavigateTo("/ViewPosts", true);
     }
+    
+    
 
 }

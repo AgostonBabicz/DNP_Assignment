@@ -63,7 +63,11 @@ public class PostsController : ControllerBase
         
     }
 
-    
+    [HttpPatch]
+    public async Task<int> AddVote(AddVoteDto addVoteDto)
+    {
+        return await postLogic.AddVote(addVoteDto);
+    }
 
     [HttpDelete, Route("/posts/{postID}")]
     public async Task<bool> DeletePost(int postID)

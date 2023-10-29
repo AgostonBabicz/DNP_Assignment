@@ -42,6 +42,16 @@ public class PostDao : IPostDao
         return Task.FromResult(comment);
     }
 
+    public Task<int> AddVote(int vote, Post post)
+    {
+        post.AddVote(vote);
+        Post existing = fileContext.Posts.FirstOrDefault(p => post.Id == p.Id)!;
+        fileContext.Posts.Remove(existing);
+        fileContext.Posts.Add(post);
+        fileContext.SaveChanges();
+        return Task.FromResult(vote);
+    }
+    
     public Task<bool> DeletePost(int postId)
     {
         Post existing = fileContext.Posts.FirstOrDefault(p => postId == p.Id)!;
@@ -49,4 +59,5 @@ public class PostDao : IPostDao
         fileContext.SaveChanges();
         return Task.FromResult(true);
     }
+
 }

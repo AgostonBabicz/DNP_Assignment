@@ -54,4 +54,15 @@ input:focus{
     align-self: flex-end;
 }
 
+.popup-content {
+    position: relative;
+}
 
+.vote-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

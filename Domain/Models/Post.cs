@@ -5,6 +5,7 @@ namespace Domain.Models;
 public class Post
 {
     public int Id { get; set; }
+    public int Upvotes { get; set; }
     public User Owner { get; set; }
     public string Title { get; set; }
     public string Body { get; set; }
@@ -19,5 +20,10 @@ public class Post
         Body = body;
         DateTime = dateTime;
         Comments = new List<Comment>();
+    }
+
+    public void AddVote(int vote)
+    {
+        Upvotes += vote;
     }
 }
