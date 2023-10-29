@@ -1,4 +1,10 @@
 POST https://localhost:7082/auth/login
 Content-Type: application/json
 
-{ "Username" : "admin", "Password" : "Admin1234" }
+{ "Username" : "admin", "Password" : "Admin01234" }
+
+
+
+###
+
+DELETE http://localhost:5273/posts/2

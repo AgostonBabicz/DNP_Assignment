@@ -56,4 +56,14 @@ public class PostLogic : IPostLogic
             commentCreationDto.CommentBody);
         return await postDao.AddCommentAsync(comment,post);
     }
+
+    public async Task<bool> DeletePost(int postID)
+    {
+        if (await postDao.DeletePost(postID))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

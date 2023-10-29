@@ -5,6 +5,7 @@
 @using Domain.DTOs
 @inject IPostService postService
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject NavigationManager NavMgr
 
 <h3>All Posts</h3>
 <AuthorizeView>
@@ -14,7 +15,7 @@
         }
         else if (!posts.Any())
         {
-            <p>No Todos to display</p>
+            <p>Hey, what are you waiting for? Start a discussion!</p>
         }
         else
         {
@@ -45,6 +46,10 @@
                 <p class="currentPostBody">@selectedPost.Body</p>
                 <p class="postDate">@selectedPost.DateTime</p>
             </div>
+            @if (selectedPost.Owner.Username == context.User.Identity.Name)
+            {
+                <button @onclick=" () => DeletePost(selectedPost.Id)"> Delete </button>
+            }
             <hr/>
             <div>
                 <label>@selectedPost.Comments.Count Comments</label>
@@ -123,13 +128,21 @@
     private void AddComment(Post post)
     {
         if (commentBody!=null)
-        {
+        {   
             postService.AddCommentAsync(new CommentCreationDto(user, DateTime.Now, post, commentBody));
+           
         }
         else
         {
             msg = "The comment body cannot be empty!";
         }
+        
+    }
+    
+    private async Task DeletePost(int selectedPostId)
+    {
+        await postService.DeletePost(selectedPostId);
+        NavMgr.NavigateTo("/ViewPosts", true);
     }
 
 }

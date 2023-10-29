@@ -62,4 +62,17 @@ public class PostsController : ControllerBase
         }
         
     }
+
+    
+
+    [HttpDelete, Route("/posts/{postID}")]
+    public async Task<bool> DeletePost(int postID)
+    {
+        if (await postLogic.DeletePost(postID))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

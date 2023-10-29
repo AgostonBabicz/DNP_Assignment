@@ -43,4 +43,12 @@ public class PostDao : IPostDao
         Console.WriteLine("GECI");
         return Task.FromResult(comment);
     }
+
+    public Task<bool> DeletePost(int postId)
+    {
+        Post existing = fileContext.Posts.FirstOrDefault(p => postId == p.Id)!;
+        fileContext.Posts.Remove(existing);
+        fileContext.SaveChanges();
+        return Task.FromResult(true);
+    }
 }

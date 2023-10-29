@@ -3,11 +3,14 @@
     {
       "Id": 1,
       "Username": "admin",
-      "DisplayName": "Admin",
       "Password": "Admin1234",
-      "Email": "admin@gmail.com",
-      "Age": 34,
       "Role": "admin"
+    },
+    {
+      "Id": 2,
+      "Username": "vlaad08",
+      "Password": "Vaidepulamea",
+      "Role": "1"
     }
   ],
   "Posts": [
@@ -16,101 +19,62 @@
       "Owner": {
         "Id": 1,
         "Username": "admin",
-        "DisplayName": "Admin",
         "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
         "Role": "admin"
       },
-      "Title": "pula",
-      "Body": "pula",
-      "DateTime": "2023-10-28T20:15:19.845601+02:00",
+      "Title": "dadadas",
+      "Body": "dadawda",
+      "DateTime": "2023-10-29T15:21:29.788657+01:00",
       "Comments": [
         {
           "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "DisplayName": "Admin",
-            "Password": "Admin1234",
-            "Email": "admin@gmail.com",
-            "Age": 34,
-            "Role": "admin"
+            "Id": 2,
+            "Username": "vlaad08",
+            "Password": "Vaidepulamea",
+            "Role": "1"
           },
-          "CreationDateTime": "2023-10-28T20:15:46.6639894+02:00",
-          "CommentBody": "pula"
-        }
-      ]
-    },
-    {
-      "Id": 3,
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "coaie",
-      "Body": "coaie",
-      "DateTime": "2023-10-28T20:15:26.4037686+02:00",
-      "Comments": [
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "DisplayName": "Admin",
-            "Password": "Admin1234",
-            "Email": "admin@gmail.com",
-            "Age": 34,
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-28T20:15:31.4772977+02:00",
-          "CommentBody": "coaie"
+          "CreationDateTime": "2023-10-29T15:24:49.4855714+01:00",
+          "CommentBody": "coaie ce dracu"
         },
         {
           "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "DisplayName": "Admin",
-            "Password": "Admin1234",
-            "Email": "admin@gmail.com",
-            "Age": 34,
-            "Role": "admin"
+            "Id": 2,
+            "Username": "vlaad08",
+            "Password": "Vaidepulamea",
+            "Role": "1"
           },
-          "CreationDateTime": "2023-10-28T20:16:51.2820896+02:00",
-          "CommentBody": "coaie"
-        }
-      ]
-    },
-    {
-      "Id": 1,
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "DisplayName": "Admin",
-        "Password": "Admin1234",
-        "Email": "admin@gmail.com",
-        "Age": 34,
-        "Role": "admin"
-      },
-      "Title": "dadwada",
-      "Body": "wdadawdawda",
-      "DateTime": "2023-10-28T20:15:13.726526+02:00",
-      "Comments": [
+          "CreationDateTime": "2023-10-29T15:25:45.9748026+01:00",
+          "CommentBody": ""
+        },
         {
           "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "DisplayName": "Admin",
-            "Password": "Admin1234",
-            "Email": "admin@gmail.com",
-            "Age": 34,
-            "Role": "admin"
+            "Id": 2,
+            "Username": "vlaad08",
+            "Password": "Vaidepulamea",
+            "Role": "1"
           },
-          "CreationDateTime": "2023-10-28T20:17:09.019106+02:00",
-          "CommentBody": "ce dracu"
+          "CreationDateTime": "2023-10-29T15:25:59.951055+01:00",
+          "CommentBody": ""
+        },
+        {
+          "Owner": {
+            "Id": 2,
+            "Username": "vlaad08",
+            "Password": "Vaidepulamea",
+            "Role": "1"
+          },
+          "CreationDateTime": "2023-10-29T15:29:15.0504455+01:00",
+          "CommentBody": "adsa"
+        },
+        {
+          "Owner": {
+            "Id": 2,
+            "Username": "vlaad08",
+            "Password": "Vaidepulamea",
+            "Role": "1"
+          },
+          "CreationDateTime": "2023-10-29T15:29:56.1164945+01:00",
+          "CommentBody": "ccaca"
         }
       ]
     }

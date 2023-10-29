@@ -35,7 +35,7 @@
     {
         try
         {
-            await authService.RegisterAsync(new UserCreationDto(username, password));
+            await authService.RegisterAsync(new UserCreationDto(username, password, "1"));
             showModal = true;
         }catch(Exception e)
         {
