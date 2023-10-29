@@ -15,78 +15,79 @@
   ],
   "Posts": [
     {
-      "Id": 2,
+      "Id": 1,
       "Owner": {
         "Id": 1,
         "Username": "admin",
         "Password": "Admin1234",
         "Role": "admin"
       },
-      "Title": "dadadas",
-      "Body": "dadawda",
-      "DateTime": "2023-10-29T15:21:29.788657+01:00",
+      "Title": "dsa",
+      "Body": "asdasd",
+      "DateTime": "2023-10-29T22:45:23.8221644+01:00",
       "Comments": [
         {
           "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
           },
-          "CreationDateTime": "2023-10-29T15:24:49.4855714+01:00",
-          "CommentBody": "coaie ce dracu"
+          "CreationDateTime": "2023-10-29T22:45:28.7730883+01:00",
+          "CommentBody": "asd"
         },
         {
           "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
           },
-          "CreationDateTime": "2023-10-29T15:25:45.9748026+01:00",
+          "CreationDateTime": "2023-10-29T22:49:02.0534322+01:00",
+          "CommentBody": "asd"
+        },
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-29T22:49:04.0063439+01:00",
+          "CommentBody": "asd"
+        },
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-29T22:49:05.5521262+01:00",
+          "CommentBody": "asd"
+        },
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-29T22:57:56.4609121+01:00",
+          "CommentBody": "asd"
+        },
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-29T22:57:57.3566014+01:00",
           "CommentBody": ""
-        },
-        {
-          "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
-          },
-          "CreationDateTime": "2023-10-29T15:25:59.951055+01:00",
-          "CommentBody": ""
-        },
-        {
-          "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
-          },
-          "CreationDateTime": "2023-10-29T15:29:15.0504455+01:00",
-          "CommentBody": "adsa"
-        },
-        {
-          "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
-          },
-          "CreationDateTime": "2023-10-29T15:29:56.1164945+01:00",
-          "CommentBody": "ccaca"
-        },
-        {
-          "Owner": {
-            "Id": 2,
-            "Username": "vlaad08",
-            "Password": "Vaidepulamea",
-            "Role": "1"
-          },
-          "CreationDateTime": "2023-10-29T15:46:13.0580473+01:00",
-          "CommentBody": "adaw"
         }
-      ]
+      ],
+      "UpVotes": 1
     }
   ]
 }

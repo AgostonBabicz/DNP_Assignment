@@ -66,7 +66,7 @@
     {
         try
         {
-            await postService.CreateAsync(new PostCreationDto(user, title,body));
+            await postService.CreateAsync(new PostCreationDto(user, title,body,0));
             showModal = true;
         }catch(Exception e)
         {

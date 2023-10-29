@@ -42,7 +42,7 @@ public class PostHttpClient : IPostService
 
     public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
     {
-        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts", commentCreationDto);
+        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts/hugy", commentCreationDto);
         if (!message.IsSuccessStatusCode)
         {
             string content = await message.Content.ReadAsStringAsync();
@@ -57,6 +57,16 @@ public class PostHttpClient : IPostService
         })!;
 
         return newlyCreatedComment;
+    }
+
+    public async Task AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto)
+    {
+        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts/up", upvoteCreationDto);
+        if (!message.IsSuccessStatusCode)
+        {
+            string content = await message.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
     }
 
     public async Task DeletePost(int postID)

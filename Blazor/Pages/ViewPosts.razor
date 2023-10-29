@@ -58,6 +58,13 @@
                     <button @onclick="() => AddComment(selectedPost)">Comment</button>
                 </div>
             </div>
+            <div>
+                <label>@upvotes Upvotes</label>
+                <div class="votes">
+                    <button @onclick="() => AddUpvote(selectedPost)">Upvote</button>
+                    <button @onclick="() => AddDownvote(selectedPost)">Downvote</button>
+                </div>
+            </div>
 
             <div>
                 @foreach (var comment in selectedPost.Comments)
@@ -88,6 +95,7 @@
     private IEnumerable<Post> posts;
     private string msg;
     private string? commentBody="";
+    private int upvotes;
 
     protected override async Task OnInitializedAsync()
     {
@@ -143,11 +151,44 @@
             msg = "comment body cannot be empty";
         }
     }
+
+    private async Task AddUpvote(Post post)
+    {
+        try
+        {
+            UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(1, post, user);
+            await postService.AddUpvoteAsync(upvoteCreationDto);
+            Console.WriteLine("segg code razor");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private async Task AddDownvote(Post post)
+    {
+        try
+        {
+            UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(-1, post, user);
+            await postService.AddUpvoteAsync(upvoteCreationDto);
+            Console.WriteLine("segg code razor");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private async Task ShowVotes(Post post)
+    {
+        upvotes = post.UpVotes;
+    }
     
     private async Task DeletePost(int selectedPostId)
     {
         await postService.DeletePost(selectedPostId);
         NavMgr.NavigateTo("/ViewPosts", true);
     }
-
+    
 }
