@@ -61,8 +61,8 @@
             <div>
                 <label>@upvotes Upvotes</label>
                 <div class="votes">
-                    <button @onclick="() => AddUpvote(selectedPost)">Upvote</button>
-                    <button @onclick="() => AddDownvote(selectedPost)">Downvote</button>
+                    <img src="upvote.png" alt="Upvote" @onclick="() => AddUpvote(selectedPost)" />
+                        <img src="downvote.png" alt="Downvote" @onclick="() => AddDownvote(selectedPost)" />
                 </div>
             </div>
 

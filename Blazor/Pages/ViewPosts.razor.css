@@ -54,25 +54,29 @@ input:focus{
     align-self: flex-end;
 }
 
-.upvote-buttons {
-    display: flex;
-    flex-direction: column;
+.upvote-count {
+    font-size: 16px;
+    margin-top: 10px;
 }
-
-.upvote-buttons button {
-    background-color: #3498db;
-    color: white;
+.votes{
+    display: flex;
+    flex-direction: row;
     border: none;
     padding: 5px 10px;
     margin-right: 10px;
     cursor: pointer;
+    
+}
+.votes img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease-in-out;
+
+}
+.votes img:hover {
+    transform: scale(1.1);
 }
 
-.upvote-buttons button:hover {
-    background-color: #2980b9;
-}
-
-.upvote-count {
-    font-size: 16px;
-    margin-top: 10px;
+.votes img:active {
+    transform: scale(2.5);
 }
