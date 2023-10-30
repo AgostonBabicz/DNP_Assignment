@@ -174,7 +174,9 @@
         try
         {
             UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(-1, post, user);
-            await postService.AddUpvoteAsync(upvoteCreationDto);
+            int newVote = await postService.AddUpvoteAsync(upvoteCreationDto);
+            //await postService.AddUpvoteAsync(upvoteCreationDto);
+            selectedPost.UpVotes += newVote;
             Console.WriteLine("segg code razor");
         }
         catch (Exception e)
