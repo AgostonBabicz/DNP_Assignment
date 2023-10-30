@@ -1,4 +1,6 @@
+using System;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Domain.DTOs;
 
 namespace HttpClients.ClientInterfaces;
