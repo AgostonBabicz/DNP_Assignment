@@ -59,7 +59,8 @@
                 </div>
             </div>
             <div>
-                <label>@upvotes Upvotes</label>
+                <label>@selectedPost.UpVotes Upvotes</label>
+                
                 <div class="votes">
                     <img src="upvote.png" alt="Upvote" @onclick="() => AddUpvote(selectedPost)" />
                         <img src="downvote.png" alt="Downvote" @onclick="() => AddDownvote(selectedPost)" />
@@ -158,7 +159,7 @@
         {
             UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(1, post, user);
             await postService.AddUpvoteAsync(upvoteCreationDto);
-            Console.WriteLine("segg code razor");
+            Console.WriteLine(selectedPost.UpVotes);
         }
         catch (Exception e)
         {

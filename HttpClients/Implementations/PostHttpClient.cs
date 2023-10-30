@@ -59,7 +59,7 @@ public class PostHttpClient : IPostService
         return newlyCreatedComment;
     }
 
-    public async Task AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto)
+    public async Task<int> AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto)
     {
         HttpResponseMessage message = await client.PatchAsJsonAsync("/posts/up", upvoteCreationDto);
         if (!message.IsSuccessStatusCode)
@@ -67,6 +67,8 @@ public class PostHttpClient : IPostService
             string content = await message.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
+
+        return upvoteCreationDto.Vote;
     }
 
     public async Task DeletePost(int postID)

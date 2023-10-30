@@ -22,9 +22,9 @@
         "Password": "Admin1234",
         "Role": "admin"
       },
-      "Title": "dsa",
+      "Title": "asdasd",
       "Body": "asdasd",
-      "DateTime": "2023-10-29T22:45:23.8221644+01:00",
+      "DateTime": "2023-10-30T13:04:48.618851+01:00",
       "Comments": [
         {
           "Owner": {
@@ -33,61 +33,11 @@
             "Password": "Admin1234",
             "Role": "admin"
           },
-          "CreationDateTime": "2023-10-29T22:45:28.7730883+01:00",
+          "CreationDateTime": "2023-10-30T13:05:30.6471582+01:00",
           "CommentBody": "asd"
-        },
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-29T22:49:02.0534322+01:00",
-          "CommentBody": "asd"
-        },
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-29T22:49:04.0063439+01:00",
-          "CommentBody": "asd"
-        },
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-29T22:49:05.5521262+01:00",
-          "CommentBody": "asd"
-        },
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-29T22:57:56.4609121+01:00",
-          "CommentBody": "asd"
-        },
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-29T22:57:57.3566014+01:00",
-          "CommentBody": ""
         }
       ],
-      "UpVotes": 2
+      "UpVotes": 1
     }
   ]
 }
