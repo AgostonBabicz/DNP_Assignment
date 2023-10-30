@@ -68,7 +68,15 @@ public class PostHttpClient : IPostService
             throw new Exception(content);
         }
 
-        return upvoteCreationDto.Vote;
+        var responseContent = await message.Content.ReadAsStreamAsync();
+        
+        int vote = JsonSerializer.Deserialize<int>(responseContent, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        
+        Console.WriteLine(upvoteCreationDto.Vote);
+        return vote;
     }
 
     public async Task DeletePost(int postID)
