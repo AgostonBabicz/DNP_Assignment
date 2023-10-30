@@ -15,31 +15,6 @@
   ],
   "Posts": [
     {
-      "Id": 1,
-      "Owner": {
-        "Id": 1,
-        "Username": "admin",
-        "Password": "Admin1234",
-        "Role": "admin"
-      },
-      "Title": "asdasd",
-      "Body": "asdasd",
-      "DateTime": "2023-10-30T13:04:48.618851+01:00",
-      "Comments": [
-        {
-          "Owner": {
-            "Id": 1,
-            "Username": "admin",
-            "Password": "Admin1234",
-            "Role": "admin"
-          },
-          "CreationDateTime": "2023-10-30T13:05:30.6471582+01:00",
-          "CommentBody": "asd"
-        }
-      ],
-      "UpVotes": 1
-    },
-    {
       "Id": 2,
       "Owner": {
         "Id": 1,
@@ -88,6 +63,45 @@
         }
       ],
       "UpVotes": 0
+    },
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "Password": "Admin1234",
+        "Role": "admin"
+      },
+      "Title": "asdasd",
+      "Body": "asdasd",
+      "DateTime": "2023-10-30T13:04:48.618851+01:00",
+      "Comments": [
+        {
+          "Owner": {
+            "Id": 1,
+            "Username": "admin",
+            "Password": "Admin1234",
+            "Role": "admin"
+          },
+          "CreationDateTime": "2023-10-30T13:05:30.6471582+01:00",
+          "CommentBody": "asd"
+        }
+      ],
+      "UpVotes": 69
+    },
+    {
+      "Id": 4,
+      "Owner": {
+        "Id": 1,
+        "Username": "admin",
+        "Password": "Admin1234",
+        "Role": "admin"
+      },
+      "Title": "BUZIBUZI",
+      "Body": "GECIGECI",
+      "DateTime": "2023-10-30T14:37:12.535593+01:00",
+      "Comments": [],
+      "UpVotes": 2
     }
   ]
 }
