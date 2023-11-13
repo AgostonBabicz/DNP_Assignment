@@ -4,7 +4,7 @@ public class UserCreationDto
 {
     public string Username {get;}
     public string Password {get;}
-    public string Role { get; }
+    public string Role { get; set; }
 
     public UserCreationDto(string username,string password, string role)
     {

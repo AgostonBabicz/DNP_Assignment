@@ -11,5 +11,5 @@ public interface IPostService
     public Task CreateAsync(PostCreationDto postCreationDto);
     public Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto);
     public Task DeletePost(int postID);
-    public Task<int> /*asdasd*/ AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto);
+    public Task<int> AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto);
 }

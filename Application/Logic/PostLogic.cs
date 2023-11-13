@@ -26,8 +26,8 @@ public class PostLogic : IPostLogic
         {
             throw new Exception($"The username {postCreationDto.OwnerUsername} cannot be found");
         }
-        ValidatePost(postCreationDto);//                                    spawn w 0 votes
-        Post post = new Post(user, postCreationDto.Title, postCreationDto.Body,DateTime.Now,0);
+        ValidatePost(postCreationDto);
+        Post post = new Post(user.Id, postCreationDto.Title, postCreationDto.Body,DateTime.Now);
         Post newPost = await postDao.CreateAsync(post);
         return newPost;
     }
@@ -55,7 +55,7 @@ public class PostLogic : IPostLogic
     {
         User? user = await authDao.GetByUsernameAsync(commentCreationDto.User);
         Post post = commentCreationDto.Post;
-        Comment comment = new Comment(user, commentCreationDto.CreationTime,
+        Comment comment = new Comment(user.Id, commentCreationDto.CreationTime,
             commentCreationDto.CommentBody);
         return await postDao.AddCommentAsync(comment,post);
     }
@@ -64,7 +64,6 @@ public class PostLogic : IPostLogic
     {
         User? user = await authDao.GetByUsernameAsync(upvoteCreationDto.Owner);
         return await postDao.AddUpvoteAsync(upvoteCreationDto.Vote,upvoteCreationDto.Post);
-        Console.WriteLine("HUGYHUGYHUGY logic");
     }
 
     public async Task<bool> DeletePost(int postID)

@@ -46,7 +46,7 @@ public class PostHttpClient : IPostService
 
     public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
     {
-        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts/hugy", commentCreationDto);
+        HttpResponseMessage message = await client.PatchAsJsonAsync("/posts/comment", commentCreationDto);
         if (!message.IsSuccessStatusCode)
         {
             string content = await message.Content.ReadAsStringAsync();

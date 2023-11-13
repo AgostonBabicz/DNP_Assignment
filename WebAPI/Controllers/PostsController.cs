@@ -49,7 +49,7 @@ public class PostsController : ControllerBase
         }
     }
 
-    [HttpPatch,Route("/posts/hugy")]
+    [HttpPatch,Route("/posts/comment")]
     public async Task<ActionResult<Comment>> AddComment(CommentCreationDto commentCreationDto)
     {
         try
@@ -74,7 +74,6 @@ public class PostsController : ControllerBase
             Console.WriteLine("controller" + upvoteCreationDto.Vote);
             int vote = await postLogic.AddUpvoteAsync(upvoteCreationDto);
             return vote;
-            Console.WriteLine("ASDSADAS controller");
         }
         catch(Exception e)
         {
