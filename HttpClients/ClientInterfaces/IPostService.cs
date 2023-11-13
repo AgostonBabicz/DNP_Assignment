@@ -8,6 +8,8 @@ namespace HttpClients.ClientInterfaces;
 public interface IPostService
 {
     public Task<ICollection<Post>> GetAsync(string? userName, string? titleContains, string? bodyContains);
+
+    public Task<ICollection<Comment>> GetCommentsForPost(int postId);
     public Task CreateAsync(PostCreationDto postCreationDto);
     public Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto);
     public Task DeletePost(int postID);

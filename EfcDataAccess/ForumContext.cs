@@ -11,7 +11,18 @@ public class ForumContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite(@"Data Source = ..\EfcDataAccess\DB.db");
+        optionsBuilder.UseSqlite(@"Data Source = /Users/AgostonBabicz/Documents/GitHub/DNP_Assignment/EfcDataAccess/DB.db");
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasMany(p => p.Comments)
+            .WithOne(c => c.Post)
+            .HasForeignKey(c => c.PostId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        base.OnModelCreating(modelBuilder);
     }
     
 }

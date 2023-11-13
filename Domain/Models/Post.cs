@@ -9,12 +9,12 @@ public class Post
     public string Title { get; private set; }
     public string Body { get; private set; }
     public DateTime DateTime { get; private set; }
-    
-    public ICollection<Comment> Comments  { get; set; }
+    [JsonIgnore] 
+    public ICollection<Comment> Comments { get; set; }
     public int UpVotes { get; set; }
     public int OwnerId { get; set; }
 
-    public Post(int ownerId, string title, string body,DateTime dateTime)
+    public Post(int ownerId, string title, string body, DateTime dateTime)
     {
         OwnerId = ownerId;
         Title = title;

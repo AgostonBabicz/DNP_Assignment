@@ -27,6 +27,21 @@ public class PostDao : IPostDao
         return allPosts;
     }
 
+    public async Task<IEnumerable<Comment>> GetCommentsForPost(int postId)
+    {
+        Console.WriteLine("dao");
+        Console.WriteLine(postId);
+        IEnumerable<Comment> comments = await context.Comments
+            .Where(c => c.PostId == postId)
+            .Include(c => c.Owner)
+            .ToListAsync();
+        foreach (var c in comments)
+        {
+            Console.WriteLine(c.CommentBody);
+        }
+        return comments;
+    }
+
     public async Task<Comment> AddCommentAsync(Comment comment, Post post)
     {
         post.Comments.Add(comment);

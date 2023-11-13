@@ -44,7 +44,23 @@ public class PostsController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpGet,Route("/comments")]
+    public async Task<ActionResult<IEnumerable<Comment>>> GetCommentsForPost([FromQuery] int postId)
+    {
+        try
+        {
+            Console.WriteLine("Controller");
+            IEnumerable<Comment> comments = await postLogic.GetCommentsForPost(postId);
+            return Ok(comments);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
             return StatusCode(500, e.Message);
         }
     }
@@ -60,10 +76,9 @@ public class PostsController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
             return StatusCode(500,e.Message);
         }
-        
     }
 
     [HttpPatch,Route("/posts/up")]

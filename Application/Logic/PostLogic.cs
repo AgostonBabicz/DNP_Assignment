@@ -51,6 +51,14 @@ public class PostLogic : IPostLogic
         return posts;
     }
 
+    public async Task<IEnumerable<Comment>> GetCommentsForPost(int postId)
+    {
+        Console.WriteLine("Logic");
+        IEnumerable<Comment> comments = await postDao.GetCommentsForPost(postId);
+        return comments;
+    }
+    
+
     public async Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto)
     {
         User? user = await authDao.GetByUsernameAsync(commentCreationDto.User);

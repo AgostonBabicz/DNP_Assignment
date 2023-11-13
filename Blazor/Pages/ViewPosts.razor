@@ -52,7 +52,10 @@
             }
             <hr/>
             <div>
-                <label>@selectedPost.Comments.Count Comments</label>
+                @if (comments != null)
+                {
+                     <label>@comments.Count() Comments</label>
+                }
                 <div class="commentField">
                     <input type="text" @bind="commentBody" placeholder="Add a comment..."/>
                     <button @onclick="() => AddComment(selectedPost)">Comment</button>
@@ -67,13 +70,22 @@
                 </div>
             </div>
 
-            <div>
-                @foreach (var comment in selectedPost.Comments)
-                {
-                    <h6>@comment.Owner.Username:</h6>
-                    <p>@comment.CommentBody</p>
-                }
-            </div>
+            @if (comments != null)
+            {
+                <div>
+                    @foreach (var comment in comments)
+                    {
+                        <h6>@comment.Owner.Username:</h6>
+                        <p>@comment.CommentBody</p>
+                    }
+                </div>
+            }
+            else
+            {
+                <div>
+                    <p>There are no available comments for this post. Be the first one to comment!</p>
+                </div>
+            }
             
         </Modal>
         
@@ -94,6 +106,7 @@
     private bool showModal;
     private Post selectedPost;
     private IEnumerable<Post> posts;
+    private IEnumerable<Comment> comments = null;
     private string msg;
     private string? commentBody="";
     private int upvotes;
@@ -117,13 +130,27 @@
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
             msg=e.Message;
         }
     }
 
-    private void ShowPopUp(Post post)
+    private async Task LoadComments(int postId)
     {
+        try
+        {
+            comments = await postService.GetCommentsForPost(postId);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            msg = e.Message;
+        }
+    }
+
+    private async void ShowPopUp(Post post)
+    {
+        await LoadComments(post.Id);
         showModal = true;
         selectedPost = post;
     }
@@ -139,12 +166,8 @@
         if (commentBody != null)
         {
             CommentCreationDto commentDto = new CommentCreationDto(user, DateTime.Now, post, commentBody);
-            Comment newComment = await postService.AddCommentAsync(commentDto);  
-            if (selectedPost != null)
-            {
-                selectedPost.Comments.Add(newComment);
-            }
-        
+            Comment newComment = await postService.AddCommentAsync(commentDto);
+            await LoadComments(post.Id);
             commentBody = "";
         }
         else

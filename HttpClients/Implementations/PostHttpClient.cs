@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -32,6 +33,22 @@ public class PostHttpClient : IPostService
             PropertyNameCaseInsensitive = true
         })!;
         return posts;
+    }
+
+    public async Task<ICollection<Comment>> GetCommentsForPost(int postId)
+    {
+        HttpResponseMessage message = await client.GetAsync($"/comments?postId={postId}");
+        string content = await message.Content.ReadAsStringAsync();
+        if (!message.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ICollection<Comment> comments = JsonSerializer.Deserialize<ICollection<Comment>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return comments;
     }
 
     public async Task CreateAsync(PostCreationDto postCreationDto)
