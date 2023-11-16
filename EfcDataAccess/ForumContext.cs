@@ -11,7 +11,7 @@ public class ForumContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-       optionsBuilder.UseSqlite(@"Data Source = /Users/AgostonBabicz/Documents/GitHub/DNP_Assignment/EfcDataAccess/DB.db");
+       //optionsBuilder.UseSqlite(@"Data Source = /Users/AgostonBabicz/Documents/GitHub/DNP_Assignment/EfcDataAccess/DB.db");
        // This is an absolute path for the DB. Please change it in order to make the application work. The relative path didn't work for some reason.
     }
 
