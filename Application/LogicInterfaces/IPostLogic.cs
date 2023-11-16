@@ -9,6 +9,7 @@ public interface IPostLogic
 {
     public Task<Post> CreateAsync(PostCreationDto postCreationDto);
     public Task<IEnumerable<Post>> GetAsync();
+    public Task<IEnumerable<Comment>> GetCommentsForPost(int postId);
     public Task<Comment> AddCommentAsync(CommentCreationDto commentCreationDto);
     public Task<bool> DeletePost(int postID);
     public Task<int> AddUpvoteAsync(UpvoteCreationDto upvoteCreationDto);

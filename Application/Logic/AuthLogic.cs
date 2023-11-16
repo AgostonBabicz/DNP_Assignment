@@ -28,7 +28,8 @@ public class AuthLogic : IAuthLogic
         User expectedUser = new User
         {
             Username = userCreationDto.Username,
-            Password = userCreationDto.Password
+            Password = userCreationDto.Password,
+            Role = "admin"
         };
         User newUser = await authDao.CreateAsync(expectedUser);
         return newUser;

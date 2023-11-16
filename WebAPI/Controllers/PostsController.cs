@@ -44,12 +44,28 @@ public class PostsController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
             return StatusCode(500, e.Message);
         }
     }
 
-    [HttpPatch,Route("/posts/hugy")]
+    [HttpGet,Route("/comments")]
+    public async Task<ActionResult<IEnumerable<Comment>>> GetCommentsForPost([FromQuery] int postId)
+    {
+        try
+        {
+            Console.WriteLine("Controller");
+            IEnumerable<Comment> comments = await postLogic.GetCommentsForPost(postId);
+            return Ok(comments);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpPatch,Route("/posts/comment")]
     public async Task<ActionResult<Comment>> AddComment(CommentCreationDto commentCreationDto)
     {
         try
@@ -60,10 +76,9 @@ public class PostsController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
             return StatusCode(500,e.Message);
         }
-        
     }
 
     [HttpPatch,Route("/posts/up")]
@@ -74,7 +89,6 @@ public class PostsController : ControllerBase
             Console.WriteLine("controller" + upvoteCreationDto.Vote);
             int vote = await postLogic.AddUpvoteAsync(upvoteCreationDto);
             return vote;
-            Console.WriteLine("ASDSADAS controller");
         }
         catch(Exception e)
         {
