@@ -126,7 +126,7 @@
         try
         {
             posts = await postService.GetAsync(null,null,null);
-            Console.WriteLine(posts);
+            
         }
         catch (Exception e)
         {
@@ -143,7 +143,6 @@
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);
             msg = e.Message;
         }
     }
@@ -182,9 +181,7 @@
         {
             UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(1, post, user);
             int newVote = await postService.AddUpvoteAsync(upvoteCreationDto);
-            //await postService.AddUpvoteAsync(upvoteCreationDto);
             selectedPost.UpVotes += newVote;
-            Console.WriteLine(selectedPost.UpVotes);
         }
         catch (Exception e)
         {
@@ -198,9 +195,7 @@
         {
             UpvoteCreationDto upvoteCreationDto = new UpvoteCreationDto(-1, post, user);
             int newVote = await postService.AddUpvoteAsync(upvoteCreationDto);
-            //await postService.AddUpvoteAsync(upvoteCreationDto);
             selectedPost.UpVotes += newVote;
-            Console.WriteLine("segg code razor");
         }
         catch (Exception e)
         {

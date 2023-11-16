@@ -53,7 +53,6 @@ public class PostLogic : IPostLogic
 
     public async Task<IEnumerable<Comment>> GetCommentsForPost(int postId)
     {
-        Console.WriteLine("Logic");
         IEnumerable<Comment> comments = await postDao.GetCommentsForPost(postId);
         return comments;
     }

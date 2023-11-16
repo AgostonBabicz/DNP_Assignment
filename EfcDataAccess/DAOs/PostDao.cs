@@ -29,7 +29,6 @@ public class PostDao : IPostDao
 
     public async Task<IEnumerable<Comment>> GetCommentsForPost(int postId)
     {
-        Console.WriteLine("dao");
         Console.WriteLine(postId);
         IEnumerable<Comment> comments = await context.Comments
             .Where(c => c.PostId == postId)
